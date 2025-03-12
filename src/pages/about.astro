@@ -1,0 +1,25 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "I'm a starter theme for Astro.build",
+	title: "About",
+};
+---
+
+<PageLayout meta={meta}>
+
+	<h1 class="title mb-6">About</h1>
+	<div class="prose prose-citrus max-w-none">
+		<p>
+			Hi, I’m Xeon.
+		</p>
+		<p>Here are my some tech stack:</p>
+		<ul class="list-inside list-disc" role="list">
+			<li>.Net</li>
+			<li>Flutter</li>
+			<li>React & Vue</li>
+		</ul>
+	</div>
+
+</PageLayout>
