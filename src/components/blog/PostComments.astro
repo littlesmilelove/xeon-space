@@ -1,0 +1,55 @@
+<div id="giscus-comments"></div>
+
+<script is:inline>
+  function initGiscus() {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'transparent_dark' : 'preferred_color_scheme';
+    
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', 'littlesmilelove/xeon-space');
+    script.setAttribute('data-repo-id', 'R_kgDOOHghkA');
+    script.setAttribute('data-category', 'Blog Post Comments');
+    script.setAttribute('data-category-id', 'DIC_kwDOOHghkM4CoZxz');
+    script.setAttribute('data-mapping', 'url');
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'bottom');
+    script.setAttribute('data-theme', theme);
+    script.setAttribute('data-lang', 'en');
+    script.setAttribute('data-loading', 'lazy');
+    script.crossOrigin = 'anonymous';
+    script.async = true;
+
+    const container = document.getElementById('giscus-comments');
+    if (container) {
+      container.innerHTML = '';
+      container.appendChild(script);
+    }
+  }
+
+  function updateGiscusTheme() {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'transparent_dark' : 'preferred_color_scheme';
+    const giscus = document.querySelector('iframe.giscus-frame');
+    if (!giscus?.contentWindow) return;
+    
+    giscus.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app'
+    );
+  }
+
+  if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initGiscus();
+      
+      const observer = new MutationObserver(updateGiscusTheme);
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+      });
+    });
+    
+    document.addEventListener('theme-change', updateGiscusTheme);
+  }
+</script>

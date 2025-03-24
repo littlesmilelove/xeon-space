@@ -3,6 +3,7 @@ import { type CollectionEntry, render } from "astro:content";
 import Masthead from "@/components/blog/Masthead.astro";
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
+import PostComments from "@/components/blog/PostComments.astro";
 import BaseLayout from "./Base.astro";
 import SeriesPanel from "@/components/SeriesPanel.astro";
 import { Icon } from "astro-icon/components";
@@ -75,6 +76,9 @@ const { headings } = await render(post);
 		<article class="grid flex-grow grid-cols-1 break-words pt-4" data-pagefind-body>
 			<div class="prose prose-citrus max-w-none flex-grow prose-headings:font-semibold prose-headings:text-accent-base prose-headings:before:text-accent-two sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none">
 				<slot />
+			</div>
+			<div class="my-12">
+				<PostComments />
 			</div>
 			<WebMentions />
 		</article>
