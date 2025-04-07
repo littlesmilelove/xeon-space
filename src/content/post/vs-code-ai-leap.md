@@ -1,5 +1,5 @@
 ---
-title: "VS Code's AI Leap: Agent Mode, MCP Integration & BYOK Freedom Arrive in v1.99"
+title: "VS Code's AI Leap: Agent Mode, MCP Integration & BYOK"
 description: "Explore the powerful new AI capabilities in VS Code v1.99, including the integrated Agent Mode, flexible MCP server support, and Bring Your Own Key (BYOK) for ultimate AI model choice."
 publishDate: "2025-04-08"
 tags: ["VS Code", "AI", "Agent Mode", "MCP", "MCP Server", "BYOK"]
