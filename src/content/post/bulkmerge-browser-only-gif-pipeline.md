@@ -7,7 +7,7 @@ tags: ["browser", "canvas", "gif", "web-performance", "architecture"]
 
 The first architecture diagram for BulkMerge looked like every other image tool: upload, queue, worker, object storage, download. It is a familiar shape because it is easy to draw. It is also a business model hiding inside a technical decision. Every uploaded file needs a bucket, a lifecycle rule, a cleanup job, an egress bill, and a rate limiter to stop someone from turning the service into a free transcoding API.
 
-We removed that entire branch. The tools now decode, resize, quantize, and re-encode inside the tab. The server serves the page and nothing else. The number we watch is CPV, cost per visit. For the image-processing path, it is $0.
+We removed that entire branch. The tools now decode, resize, quantize, and re-encode inside the tab. The server serves the page; the image path never touches it. The number we watch is CPV, cost per visit. For the image-processing path, it is $0.
 
 That does not mean hosting is free. The domain, the edge deployment, the fonts, and the engineering time are real. The narrower claim is the useful one: there is no per-visit image-processing bill. The visitor's CPU does the work, and the file never leaves the device.
 
